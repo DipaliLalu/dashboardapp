@@ -25,7 +25,7 @@ function RegistrationForm() {
     };
     const notify = () => toast.success('Registration successfully');
     const data = JSON.parse(localStorage.getItem('users')) || [];
-    console.log(data)
+    // console.log(data)
     const { values, handleChange, errors, handleSubmit, touched } = useFormik({
         initialValues,
         validationSchema: signupSchema,

@@ -1,7 +1,9 @@
 import * as Yup from 'yup';
 const checkAvailabilityUsername=(fullname)=>{
-    const data=JSON.parse(localStorage.getItem('users'));
-    return data.every((curele) => curele.fullname !== fullname);
+    const data=JSON.parse(localStorage.getItem('users'))||[];
+    if(data.length>=0){
+        return data.every((curele) => curele.fullname !== fullname);
+    }
 }
 export const signupSchema=Yup.object({
     fullname:Yup.string().min(2).max(25).required("Please enter fullname").test("fullname", "This name has already been taken", function (fullname) {
