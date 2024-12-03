@@ -37,9 +37,16 @@ function Form({ curData }) {
     validationSchema: validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        const base64Image = values.fileupload ? await toBase64(values.fileupload) : null;
+        let base64Image;
+        if (values.fileupload instanceof File) {
+          base64Image = await toBase64(values.fileupload);
+        } else if (curData && curData.fileupload) {
+          base64Image = curData.fileupload;
+        } else {
+          base64Image = null;
+        }
         // console.log('path',values.fileupload);
-        values.fileupload=base64Image;
+        values.fileupload = base64Image;
         const blogData = {
           ...values
         };
@@ -64,7 +71,9 @@ function Form({ curData }) {
       }
     },
   });
-  
+  const titleAllow = data.filter((e) => e.title === values.title);
+  console.log(titleAllow)
+
   return (
     <form
       className="dark:bg-gray-900 p-2 md:p-10 rounded-xl dark:text-white flex flex-col gap-5 w-full overflow-auto"
@@ -82,6 +91,7 @@ function Form({ curData }) {
           value={values.title}
           disabled={curData}
         />
+        {curData?null:titleAllow.length > 0 ? (<p className="text-red-500">Title already exists.</p>) : null}
         {errors.title && touched.title && <p className="text-red-500">{errors.title}</p>}
       </div>
 
@@ -114,16 +124,15 @@ function Form({ curData }) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor="tags">Content</label>
-        <div  className="bg-transparent border-2 rounded-lg border-gray-600 text-white p-3">
+        <label htmlFor="content">Content</label>
         <TextEditor
           value={values.textEditor}
           onChange={(content) => setFieldValue("textEditor", content)}
         /></div>
-        {errors.textEditor && touched.textEditor && (
-          <p className="text-red-500">{errors.textEditor}</p>
-        )}
-      </div>
+      {errors.textEditor && touched.textEditor && (
+        <p className="text-red-500">{errors.textEditor}</p>
+      )}
+
 
       <div className="flex flex-col gap-2">
         <label htmlFor="tag-input">Tags</label>
@@ -136,7 +145,7 @@ function Form({ curData }) {
 
       <div className="flex justify-end">
         <button className="bg-blue-600 md:w-1/2 w-full p-3 rounded-xl text-white" type="submit">
-          Create a Blog
+          {curData ? "Save Changes" : "Create a Blog"}
         </button>
         <ToastContainer />
 

@@ -15,7 +15,7 @@ function BlogList() {
         localStorage.setItem("blogData", JSON.stringify(updatedList)); 
     };
     return (
-        <div className="p-6 flex flex-col gap-6 transition-all dark:bg-black dark:text-slate-300 w-full  h-full">
+        <div className="p-6 flex flex-col gap-6 transition-all dark:bg-black dark:text-slate-300 w-full min-h-screen">
             <div className="flex items-center gap-2 text-sm">
                 <span>App</span><span><FaAngleRight /></span><span>Blog</span><span><FaAngleRight /></span><span>List</span>
             </div>

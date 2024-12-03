@@ -7,14 +7,14 @@ function TagList({ value, onChange }) {
       if (e.key === "Enter" && currentTag.trim() !== "") {
         e.preventDefault();
         if (!value.includes(currentTag)) {
-          onChange([...value, currentTag.trim()]); // Update tags in form state
+          onChange([...value, currentTag.trim()]); 
           setCurrentTag("");
         }
       }
     };
   
     const removeTag = (index) => {
-      onChange(value.filter((_, i) => i !== index)); // Remove tag
+      onChange(value.filter((_, i) => i !== index)); 
     };
   
     return (
