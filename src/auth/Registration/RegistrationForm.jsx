@@ -83,6 +83,7 @@ function RegistrationForm() {
                 <ToastContainer />
                 <p>Already Have An Account? <Link to={'/login'} className='text-blue-600'> Login </Link></p>
             </form>
+            
         </div>
     )
 }
