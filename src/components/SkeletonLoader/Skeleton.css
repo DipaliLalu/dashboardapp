@@ -1,0 +1,50 @@
+.skeleton-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .skeleton-card {
+    /* background: #333; */
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+  .skeleton-right{
+        height: 100%;
+        background: linear-gradient(to left, #bdb8b8, #dad5d5, #c1bebe);
+        background-size: 300% 100%; 
+        animation: gradientFlow 4s infinite linear;
+        border-radius: 5px;
+        width: 40%;
+  }
+  .skeleton-left{
+    width: 50%;
+}
+  .skeleton-line {
+    height: 20px;
+    background: linear-gradient(to left, #bdb8b8, #dad5d5, #c1bebe);
+    background-size: 300% 100%; 
+    animation: gradientFlow 2s infinite linear;
+  }
+  
+  .skeleton-line.short {
+    width: 50%;
+  }
+  
+  @keyframes gradientFlow {
+    0% {
+      background-position: 0% 50%; 
+    }
+    100% {
+      background-position: 50% 100%; 
+    }
+  }
+  

@@ -36,10 +36,10 @@ function Card({ curEle, onDelete }) {
     };
 
     return (
-        <div className="w-full rounded-2xl p-5 dark:bg-gray-800 flex justify-between md:flex-row relative shadow-2xl flex-col-reverse">
-            <div className="flex flex-col gap-2 w-2/3">
-                <div className="font-semibold">{curEle.title}</div>
-                <div className="truncate w-3/4">{curEle.description}</div>
+        <div className="w-full rounded-2xl p-5 dark:bg-gray-800 flex justify-between md:flex-row relative shadow-2xl flex-col-reverse gap-3">
+            <div className="flex flex-col gap-2 lg:w-2/3 w-full">
+                <div className="font-semibold uppercase">{curEle.title}</div>
+                <div className="truncate lg:w-3/4 w-full">{curEle.description}</div>
                 <div>{curEle.taglist.join(" , ")}</div>
                 <div className="cursor-pointer">
                     <BsThreeDots size={25} onClick={handleClick} />
