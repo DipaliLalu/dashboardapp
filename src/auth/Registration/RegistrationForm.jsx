@@ -23,7 +23,9 @@ function RegistrationForm() {
     const togglePasswordVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
     };
+
     const notify = () => toast.success('Registration successfully');
+    
     const data = JSON.parse(localStorage.getItem('users')) || [];
     console.log(data)
     const { values, handleChange, errors, handleSubmit, touched } = useFormik({
