@@ -1,0 +1,19 @@
+.quill {
+    border-width: 2px;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    border-color: #6b7280;
+}
+.quill:focus{
+    border:2px solid white !important;
+}
+.ql-toolbar.ql-snow {
+    border: none;
+}
+.ql-container.ql-snow {
+    border: none;
+}
+.ql-editor{
+    border-top-width: 1px;
+    border-color: grey;
+}

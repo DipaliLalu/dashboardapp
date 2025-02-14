@@ -23,9 +23,11 @@ function RegistrationForm() {
     const togglePasswordVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
     };
+
     const notify = () => toast.success('Registration successfully');
+    
     const data = JSON.parse(localStorage.getItem('users')) || [];
-    console.log(data)
+    // console.log(data)
     const { values, handleChange, errors, handleSubmit, touched } = useFormik({
         initialValues,
         validationSchema: signupSchema,
@@ -83,6 +85,7 @@ function RegistrationForm() {
                 <ToastContainer />
                 <p>Already Have An Account? <Link to={'/login'} className='text-blue-600'> Login </Link></p>
             </form>
+            
         </div>
     )
 }

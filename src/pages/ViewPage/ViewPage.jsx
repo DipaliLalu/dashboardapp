@@ -1,11 +1,12 @@
 import React from 'react'
 import { FaAngleRight } from 'react-icons/fa6';
 import { useLocation, useNavigate } from 'react-router-dom';
-import DOMPurify from "dompurify";
+// import DOMPurify from "dompurify";
+import MarkdownRenderer from '../../components/MarkdownRenderer/MarkdownRenderer';
 function ViewPage() {
     const location = useLocation();
     const curEle = location.state.data;
-    console.log(curEle)
+    // console.log(curEle)
     const navigate = useNavigate();
     const handleClick = () => {
         navigate(-1);
@@ -22,9 +23,11 @@ function ViewPage() {
                 <div>
                     <div>{curEle.description}</div>
                 </div>
-                <div
-                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(curEle.textEditor) }}
-                />
+                <div>
+                {/* // dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(curEle.textEditor) }}> */}
+                <MarkdownRenderer markdownContent={curEle.textEditor} />
+                </div>
+              
                 <div className='flex flex-col gap-3'>
                     <hr />
                     <div className='flex gap-5 flex-wrap'>{curEle.taglist.map((tag,i)=>{
