@@ -82,7 +82,7 @@ function Card({ curEle, onDelete }) {
 
             {/* Delete Confirmation Modal */}
             {showDeletePopup && (
-                <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-600 bg-opacity-50 flex items-center justify-center z-50 rounded-lg backdrop-blur-2xl flex-col p-5">
+                <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 dark:bg-slate-600 bg-opacity-50 flex items-center justify-center z-50 rounded-lg backdrop-blur-2xl flex-col p-5">
                     <h3 className="text-lg font-semibold mb-4 dark:text-white">
                         Are you sure you want to delete this blog?
                     </h3>

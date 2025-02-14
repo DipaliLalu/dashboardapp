@@ -22,18 +22,6 @@ function Sidebar() {
           </div>
           <div className='flex flex-col gap-6 w-full'>
             <li>
-              <NavLink to={'/'} className='flex gap-2 items-center'>
-                <div><TiHome size={arrow ? 25 : 20} /></div>
-                <div className={`hidden md:${showData}`}>Home</div>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to={'/contact'} className='flex gap-2 items-center'>
-                <div><MdContactPage size={arrow ? 25 : 20} /></div>
-                <div className={`hidden md:${showData}`}>Contact</div>
-              </NavLink>
-            </li>
-            <li>
               <NavLink to={'/createblog'} className='flex gap-2 items-center'>
                 <div><IoMdCreate size={arrow ? 25 : 20} /></div>
                 <div className={`hidden md:${showData}`}>Create a Blog</div>
